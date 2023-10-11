@@ -22,6 +22,10 @@ const addUsers = async (req, res, next) => {
     console.log(`Error is ${error}`);
   }
 };
+const getUsers = async (req, res, next) => {
+  const users = await User.find().exec();
+  res.json(users);
+};
 // const getuser = (req, res, next) => {
 //   const userId = req.params.uid;
 //   const user = DUMMY_USERS.find((user) => {
@@ -41,5 +45,6 @@ const addUsers = async (req, res, next) => {
 // };
 
 exports.addUsers = addUsers;
+exports.getUsers = getUsers;
 // exports.getuser = getuser;
 // exports.deleteUser = deleteUser;
