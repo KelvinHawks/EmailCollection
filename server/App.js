@@ -1,5 +1,6 @@
 const express = require("express");
 const usersRoutes = require("./routes/users-Routes");
+const orderRoutes = require("./routes/users-order");
 const HttpError = require("./models/http-error");
 
 const app = express();
@@ -11,6 +12,7 @@ dotenv.config();
 app.use(cors());
 
 app.use("/api/users", usersRoutes);
+app.use("/api", orderRoutes);
 
 app.use((req, res, next) => {
   const error = new HttpError("Could not find this route", 404);
