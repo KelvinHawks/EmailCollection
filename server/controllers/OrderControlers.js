@@ -18,4 +18,10 @@ const placeOrder = async (req, res, next) => {
   }
 };
 
+const getOrders = async (req, res, next) => {
+  const orders = await Order.find().exec();
+  res.json(orders);
+};
+
 exports.placeOrder = placeOrder;
+exports.getOrders = getOrders;
